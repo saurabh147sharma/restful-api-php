@@ -81,13 +81,13 @@ class Api extends REST{
   // install mamche before using it
   // sudo apt-get install memcached
   // sudo pecl install memcache
-    $memcacheObj = new Memcache;
+   // $memcacheObj = new Memcache;
 // memcache host : localhost
 // memcache port : 11211
-    $memcacheObj->connect('localhost',11211) or die('Memcache could not connect');
+  //  $memcacheObj->connect('localhost',11211) or die('Memcache could not connect');
     $cacheResults = array();
     $products = array();
-    $cacheResults = $memcacheObj->get('products');
+   // $cacheResults = $memcacheObj->get('products');
     if(!empty($cacheResults)){
       $products = $cacheResults;
     }
@@ -100,7 +100,7 @@ class Api extends REST{
           $products[] = $row;
         }
     // cache 5 minutes or 300 seconds
-        $memcacheObj->set('products',$products,MEMCACHE_COMPRESSED, 300);
+       // $memcacheObj->set('products',$products,MEMCACHE_COMPRESSED, 300);
       } 
     }
 
